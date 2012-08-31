@@ -1,0 +1,6 @@
+#
+# see https://github.com/h5bp/html5-boilerplate/issues/378
+#
+BrowserMatch MSIE ie
+Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+ErrorDocument 404 /404.html
