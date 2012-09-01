@@ -4285,6 +4285,12 @@ section {
   display: none;
 }
 
+/* youtube iframe in modals - requires suitable responsive widths on the modal container (as well as heights on this element) */
+
+.modal-video {
+  overflow-y: hidden;
+}
+
 .nav .lang {
   text-align: right;
 }
