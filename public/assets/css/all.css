@@ -4891,6 +4891,12 @@ footer {
   color: #ffffff;
 }
 
+.footer .colleagues li span {
+  display: block;
+  margin-left: 20px;
+  font-style: italic;
+}
+
 .footer .social {
   color: #aaa;
   *zoom: 1;
@@ -5171,6 +5177,9 @@ address.vcard span.adr .email {
   .footer .right {
     display: block;
     width: 100% !important;
+  }
+  .modal .modal-video {
+    height: 245px;
   }
 }
 
