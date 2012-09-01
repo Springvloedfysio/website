@@ -2,11 +2,11 @@ $(function() {
 
   var handheld = $('.display-phone').css('display') !== 'none',
       offset   = 50,
-      lnk_sel  = "a[href^='http'], a[href^='//'], a[rel='external']";
+      lnk_sel  = "a[rel='external']"; /* a[href^='http'], a[href^='//'], */
 
 
   // mark external links
-  $('header,section').find(lnk_sel).externalLinks({
+  $('header,section,div.modal').find(lnk_sel).externalLinks({
       favicon   : false,
       title_text: "{title}"
   });
@@ -156,7 +156,6 @@ $(function() {
     if (!google) return;
 
     var mdiv   = $("#gmap"),
-        mrtdiv = $("#gmap_routetgl_ctrls"),
         mrcdiv = $("#gmap_route_ctrls"),
         desc   = $("#gmap_route_cnt"),
         btns   = {
@@ -315,7 +314,6 @@ $(function() {
             if (addrs.length === $.grep(markers, function(el) { return !!el; }).length) {
                 resizeFn();
                 $(window).resize(resizeFn);
-                mrtdiv.show();
                 btns.r.click(routeFn);
             }
         });
@@ -336,8 +334,8 @@ $(function() {
     plus.async = true;
     plus.src   = prot + '//apis.google.com/js/plusone.js';
 
-    body.append(maps);
     body.append(plus);
+    body.append(maps);
 
     // g+ badge config
     window.___gcfg = {
