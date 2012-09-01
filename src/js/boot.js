@@ -6,15 +6,10 @@ $(function() {
 
 
   // mark external links
-  $('header,section,div.modal').find(lnk_sel).externalLinks({
-      favicon   : false,
-      title_text: "{title}"
-  });
-
-  $('footer').find(lnk_sel).each(function() {
+  $('header,section,div.modal,footer').find(lnk_sel).each(function() {
     var $el = $(this);
 
-    if ($el.hasClass('img')) {
+    if ($el.hasClass('img') || $el.hasClass('btn')) {
       $el.externalLinks({
           favicon      : false,
           span_class   : '',
