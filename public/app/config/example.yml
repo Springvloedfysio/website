@@ -1,0 +1,9 @@
+admin:
+    username: admin
+    password: admin
+
+mollom:
+    keys:
+        private: abcdefghijklmnopqrstuvwxyz
+        public: abcdefghijklmnopqrstuvwxyz
+
