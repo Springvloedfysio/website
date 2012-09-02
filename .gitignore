@@ -1,3 +1,4 @@
 .DS_Store
 demo-images
 build/*.pid
+public/app/config/*
