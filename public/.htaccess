@@ -1,6 +1,12 @@
 #
 # see https://github.com/h5bp/html5-boilerplate/issues/378
 #
-BrowserMatch MSIE ie
-Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
-ErrorDocument 404 /404.html
+BrowserMatch    MSIE                                    ie
+Header          set X-UA-Compatible "IE=Edge,chrome=1"  env=ie
+
+<IfModule mod_rewrite.c>
+    Options         -MultiViews
+    RewriteEngine   On
+    RewriteCond     %{REQUEST_FILENAME} !-f
+    RewriteRule     ^                   index.php   [L]
+</IfModule>
