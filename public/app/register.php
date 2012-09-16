@@ -16,11 +16,14 @@ $app->register(new Igorw\Silex\ConfigServiceProvider(__DIR__ . '/config/config.j
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 // mailing
-$app->register(new Silex\Provider\SwiftmailerServiceProvider(), array(
-    'swiftmailer.options' => $app['smtp_settings']
-));
+try {
+    $mailer_opts = array('swiftmailer.options' => $app['smtp_settings']);
+} catch (InvalidArgumentException $e) {
+    $mailer_opts = array();
+}
 
-if (!isset($app['smtp_settings']) || !is_array($app['smtp_settings']))
+$app->register(new Silex\Provider\SwiftmailerServiceProvider(), $mailer_opts);
+if (!count($mailer_opts))
     $app['swiftmailer.transport'] = \Swift_MailTransport::newInstance();
 
 
