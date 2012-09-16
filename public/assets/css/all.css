@@ -4841,6 +4841,10 @@ footer {
   color: #f5f5f5;
 }
 
+.footer h2 {
+  color: #b6cfe8;
+}
+
 .footer .grad1 {
   height: 35px;
   background-color: #3874af;

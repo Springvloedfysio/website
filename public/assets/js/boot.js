@@ -4,7 +4,6 @@ $(function() {
       offset   = 50,
       lnk_sel  = "a[rel='external']"; /* a[href^='http'], a[href^='//'], */
 
-
   // mark external links
   $('header,section,div.modal,footer').find(lnk_sel).each(function() {
     var $el = $(this);
@@ -41,7 +40,7 @@ $(function() {
       them = $(href === '#' ? 'body' : "a[name='" + href.substring(1) + "']");
 
       if (them.length) me.click(function(e) {
-          e && e.preventDefault();
+          e.preventDefault();
           $('html,body').animate({"scrollTop": (href === '#top' ? 0 : them.offset().top - offset)}, 'slow');
       });
   });
@@ -101,50 +100,6 @@ $(function() {
 
   })($('.carousel').carousel()));
 
-
-  // contact form validation
-  (function(cf) {
-    if (!cf || !cf.validate)
-      return;
-
-    var btn = cf.find('button');
-
-    cf.attr('novalidate','novalidate');
-
-    cf.ajaxForm({
-      success   : function(resp) {
-
-      },
-      error     : function(resp) {
-
-      }
-    });
-
-    cf.validate({
-      rules     : {
-        name    : {
-          minlength : 2,
-          required  : true
-        },
-        email   : {
-          required  : true,
-          email     : true
-        },
-        message : {
-          minlength : 10,
-          required  : true
-        }
-      },
-
-      errorPlacement: function(err, el) {},
-
-      submitHandler : function(form) {
-        btn.button('loading');
-      }
-    });
-
-  })($('#contactform'));
-
   /* google maps */
   window.buildmap = function() {
 
@@ -187,7 +142,7 @@ $(function() {
         },
 
         routeFn     = function(e) {
-            e && e.preventDefault();
+            e.preventDefault();
 
             var fval, tval, mval,
                 from = mrcdiv.find('[name="from"]'),
@@ -315,11 +270,67 @@ $(function() {
     });
   };
 
-  (function() {
-    var maps = document.createElement("script"),
-        plus = document.createElement('script'),
+  // contact form validation
+  (function(cf) {
+    if (!cf || !cf.validate)
+      return;
+
+    var btn = cf.find('button'),
+        fbk = $('#contact_feedback'),
+        thk = $('#contact_thanks');
+
+    cf.attr('novalidate','novalidate')
+      .ajaxForm({
+        beforeSubmit: function() {
+          var r = cf.valid();
+
+          if (r) {
+            fbk.hide();
+            btn.button('loading');
+          }
+
+          return r;
+        },
+
+        success     : function(resp) {
+          if (!resp.success) {
+            btn.button('reset');
+
+            if (resp.errmsg)
+              fbk.show().text(resp.errmsg);
+          } else {
+            cf.hide();
+            thk.show();
+          }
+        },
+
+        error       : function(resp) {}
+    })
+      .validate({
+        rules     : {
+          name    : {
+            minlength : 2,
+            required  : true
+          },
+          email   : {
+            required  : true,
+            email     : true
+          },
+          message : {
+            minlength : 10,
+            required  : true
+          }
+        }
+      });
+
+  })($('#contactform'));
+
+  // load some more js - async style
+  (function(d, w) {
+    var maps = d.createElement("script"),
+        plus = d.createElement('script'),
         body = $('body'),
-        prot = window.location.protocol;
+        prot = w.location.protocol;
 
     maps.type  = "text/javascript";
     maps.async = true;
@@ -333,10 +344,10 @@ $(function() {
     body.append(maps);
 
     // g+ badge config
-    window.___gcfg = {
+    w.___gcfg = {
       lang      : $('html').attr('lang') || 'nl',
       parsetags : 'onload'
     };
 
-  })();
+  })(document, window);
 });
