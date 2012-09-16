@@ -1,0 +1,52 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+
+    <div class="container">
+      <header>
+        <h1 class="main">{{ 'Oops, er ging iets mis!' | trans }} <small>{{ '(sorry)' | trans }}</small></h1>
+        <div class="lead">
+          <span class="martin"><img src="/assets/img/martin_err.jpg" alt="Foto van Martin" /></span>
+          <a name="intro" class="anchor"></a>
+          Een <strong>Rotterdams Fysiotherapeut</strong> die een hollistische benadering hanteert om symptomen en oorzaken te behandelen.
+          <br />
+          <br />
+          Mijn focus ligt op het educeren en coachen van mensen. Via bewust contact met het lichaam verbeterd je gezondheid.
+          <br />
+          <br />
+          De deur staat open, je bent van harte welkom. Neem gerust <a href="#contact">contact</a> op om de mogelijkheden te bespreken.
+
+          <section id="{{ hash_name('vision', app.locale) }}">
+            <h1><a name="{{ hash_name('vision', app.locale) }}" class="anchor"></a>Visie &amp; Missie</h1>
+              <p>
+                  Als therapeut werk ik met het fenomeen pijn. 20% van de mensen lijdt aan de gevolgen van chronische pijn. Dit wordt veroorzaakt door meerdere factoren waaronder, misverstanden in het pijndenken, een gebrek aan inzicht en gebrek aan adequate (zelfhulp)middelen.
+                </p>
+                <p>
+                  Met mijn praktijk wil ik mensen die openstaan voor nieuwe inzichten, ondersteunen om  persoonlijke doelen te verwezenlijken.
+                </p>
+          </section>
+        </div>
+      </header>
+
+      <hr />
+
+      <div class="row">
+        <div class="span6">
+          <h3>Things to try:</h3>
+          <ul>
+            <li><a href="{{ path('home_' . app.locale )}}">checkout the homepage</a>.</li>
+            <li>try a link in the menu at the top of the page.</li>
+            <li>take it as sign that you should stop surfing and go for a walk. :)</li>
+          </ul>
+        </div>
+        <div class="span6">
+          <script>
+              var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),
+                  GOOG_FIXURL_SITE = location.host;
+          </script>
+          <script src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

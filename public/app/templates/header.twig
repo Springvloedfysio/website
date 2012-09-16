@@ -1,0 +1,34 @@
+<a name="top" id="top" class="anchor"></a>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/">{{ 'Springvloed Fysiotherapie' | trans }}</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              {% if app.locale != 'nl' %}<li class="display-phone hidden-desktop lang"><a href="/"><em>bekijk deze site in het <strong>Nederlands.</strong></em> <span class="flag lang_nl"></span></a></li>{% endif %}
+              {% if app.locale != 'en' %}<li class="display-phone hidden-desktop lang"><a href="/en/"><em>view this site in <strong>English</strong></em> <span class="flag lang_en"></span></a></li>{% endif %}
+
+              <li class="active"><a href="#top">{{ 'Intro' | trans }}</a></li>
+              <li><a href="{{ hash_href('vision', app.locale) }}">{{ 'Visie & Missie' | trans }}</a></li>
+              <li><a href="{{ hash_href('services', app.locale) }}">{{ 'Diensten & Activiteiten' | trans }}</a></li>
+              <li><a href="{{ hash_href('prices', app.locale) }}">{{ 'Prijslijst' | trans }}</a></li>
+              <li><a href="{{ hash_href('location', app.locale) }}">{{ 'Locatie' | trans }}</a></li>
+              <li><a href="{{ hash_href('contact', app.locale) }}">{{ 'Contact' | trans }}</a></li>
+              <li class="display-phone hidden-desktop"><a href="{{ hash_href('opening_times', app.locale) }}" title="">{{ 'Openingstijden' | trans }}</a></li>
+              <li class="display-phone hidden-desktop"><a href="{{ hash_href('martin_online', app.locale) }}" title="">{{ 'Google+, LinkedIn, Youtube, Twitter.' | trans }}</a></li>
+              <li class="divider-vertical"></li>
+              <li class="hidden-phone lang short">
+                {% if app.locale != 'nl' %}<a href="/" title="Bekijk deze site in het nederlands."><span class="flag lang_nl"></span></a>{% endif %}
+                {% if app.locale != 'en' %}<a href="/en/" title="View this site in english."><span class="flag lang_en"></span></a>{% endif %}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>

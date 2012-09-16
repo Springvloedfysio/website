@@ -1,0 +1,145 @@
+
+    <footer id="{{ hash_name('contact', app.locale) }}">
+      <a name="{{ hash_name('contact', app.locale) }}" class="anchor"></a>
+
+      <div class="container">
+        <p class="pull-right"><a href="#">{{ 'terug naar boven' | trans }}</a></p>
+      </div>
+
+      <div class="footer">
+        <div class="grad1"></div>
+        <div class="grad2">
+          <div class="container">
+            <div class="row">
+              <div class="span4 right">
+                <h2>{{ 'Contact' | trans }}</h2>
+                <dl class="dl-horizontal">
+                  <dt>{{ 'Mobile' | trans }}</dt>
+                  <dd>0624 628 059</dd>
+                  <dt>{{ 'Telefoon' | trans }}</dt>
+                  <dd>010 277 02 74</dd>
+                  <dt>{{ 'Fax' | trans }}</dt>
+                  <dd>010 277 02 70</dd>
+                  <dt>{{ 'Email' | trans }}</dt>
+                  <dd>
+                    <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#000111;&#58;&#x69;&#x6e;&#x66;&#x6f;&#00064;&#x73;&#112;&#x72;&#000105;&#110;&#000103;&#x76;&#x6c;&#000111;&#101;&#000100;&#x66;&#x79;&#000115;&#x69;&#000111;&#00046;&#000110;&#x6c;?subject=Hi+Martin+(via+website)">&#000105;&#x6e;&#x66;&#111;&#x40;&#000115;&#x70;&#000114;&#105;&#x6e;&#x67;&#x76;&#x6c;&#000111;&#101;&#x64;&#x66;&#121;&#x73;&#105;&#x6f;&#46;&#x6e;&#x6c;</a>
+                  </dd>
+                </dl>
+                <dl class="dl-horizontal spaced">
+                  <!-- Sportcentrum Hollander -->
+                  <dt>{{ 'Adres' | trans }}</dt>
+                  <dd>
+                    <address class="vcard">
+                     <span class="adr">
+                        <span><em><strong>Sportcentrum Hollander</strong></em></span>
+                        <a class="fn org" href="http://springvloedfysio.nl/">Springvloed Fysiotherapie (Sportcentrum Hollander)</a>
+                        <span class="n">
+                          <span class="given-name">Martin</span>
+                          <span class="family-name">Springvloed</span>
+                        </span>
+                        <span class="tel">+31 10 277 02 74</span>
+                        <a class="email" href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#000111;&#58;&#x69;&#x6e;&#x66;&#x6f;&#00064;&#x73;&#112;&#x72;&#000105;&#110;&#000103;&#x76;&#x6c;&#000111;&#101;&#000100;&#x66;&#x79;&#000115;&#x69;&#000111;&#00046;&#000110;&#x6c;?subject=Hi+Martin+(via+website)">&#000105;&#x6e;&#x66;&#111;&#x40;&#000115;&#x70;&#000114;&#105;&#x6e;&#x67;&#x76;&#x6c;&#000111;&#101;&#x64;&#x66;&#121;&#x73;&#105;&#x6f;&#46;&#x6e;&#x6c;</a>
+                        <span class="street-address">1e Jerichostraat 20</span>
+                        <span class="postal-code">3061 GE</span>
+                        <span class="postal-code-extra">Kralingen</span>
+                        <span class="locality">Rotterdam</span>
+                        <span class="country-name">Netherlands</span>
+                     </span>
+                    </address>
+                  </dd>
+                  <!-- CG&W  -->
+                  <dt class="hidden-phone">{{ 'Adres' | trans }}</dt>
+                  <dd class="hidden-phone">
+                    <address class="vcard">
+                      <span class="adr">
+                        <span><em><strong>Centrum Gezondheid &amp; Welzijn</strong></em></span>
+                        <a class="fn org" href="http://springvloedfysio.nl/">Springvloed Fysiotherapie (CG & W)</a>
+                        <span class="n">
+                          <span class="given-name">Martin</span>
+                          <span class="family-name">Springvloed</span>
+                        </span>
+                        <span class="tel">+31 10 277 02 74</span>
+                        <a class="email" href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#000111;&#58;&#x69;&#x6e;&#x66;&#x6f;&#00064;&#x73;&#112;&#x72;&#000105;&#110;&#000103;&#x76;&#x6c;&#000111;&#101;&#000100;&#x66;&#x79;&#000115;&#x69;&#000111;&#00046;&#000110;&#x6c;?subject=Hi+Martin+(via+website)">&#000105;&#x6e;&#x66;&#111;&#x40;&#000115;&#x70;&#000114;&#105;&#x6e;&#x67;&#x76;&#x6c;&#000111;&#101;&#x64;&#x66;&#121;&#x73;&#105;&#x6f;&#46;&#x6e;&#x6c;</a>
+                        <span class="street-address">'s-Gravendijkwal 66</span>
+                        <span class="postal-code">3014 EG</span>
+                        <span class="postal-code-extra">Deelgemeente Centrum</span>
+                        <span class="locality">Rotterdam</span>
+                      <span class="country-name">Netherlands</span>
+                     </span>
+                    </address>
+                  </dd>
+                </dl>
+
+                <a name="{{ hash_name('opening_times', app.locale) }}" id="{{ hash_name('opening_times', app.locale) }}" class="anchor"></a>
+                <h2>{{ 'Openingstijden' | trans }}</h2>
+                <dl class="dl-horizontal">
+                  <dt>{{ 'Ma. t/m Vr.' | trans }}</dt>
+                  <dd>08.30 - 20.00</dd>
+                  <dt>{{ 'Zaterdag' | trans }}</dt>
+                  <dd>10.00 - 17.00</dd>
+                </dl>
+              </div>
+              <div class="span3 left">
+                <h2>{{ 'Stuur een Bericht' | trans }}</h2>
+
+                <div id="contact_feedback"></div>
+
+                <form id="contactform" method="post" action="{{ path('post_email') }}">
+                    <span class="control-group"><input type="text" placeholder="{{ 'Naam' | trans }}" name="name"></span>
+                    <span class="control-group"><input type="text" placeholder="{{ 'Email' | trans }}" name="email"></span>
+                    <span class="control-group"><textarea style="height: 140px" name="message"></textarea></span>
+                    <div><button type="submit" class="btn btn-inverse" data-loading-text="{{ 'wordt verstuurd...' | trans }}" autocomplete="off">{{ 'versturen' | trans }}</button></div>
+                </form>
+
+                <div class="hide" id="contact_verify">
+                  <p>
+                    {{ 'Kan je a.j.b bevstigen dat je geen spam-robot bent d.m.v. het invullen van het onderstande!' | trans }}
+                  </p>
+                  <form id="captchaform" method="post" action="{{ path('post_email_captcha') }}">
+                    <span class="control-group"><input type="text" placeholder="{{ 'Veligheidscode' | trans }}" name="captcha"></span>
+
+                    <div id="captcha_container">
+                    </div>
+
+                    <div><button type="submit" class="btn btn-inverse" data-loading-text="{{ 'wordt verstuurd...' | trans }}" autocomplete="off">{{ 'bevestigen' | trans }}</button></div>
+                  </form>
+                </div>
+
+                <div class="hide" id="contact_thanks">
+                  <p>
+                    {{ 'Dank je voor jou bericht, ik neem zo snel mogelijk contact op!' | trans }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="offset1 span4 right">
+                <a name="{{ hash_name('martin_online', app.locale) }}" id="{{ hash_name('martin_online', app.locale) }}" class="anchor"></a>
+                <h2>{{ 'Berijk mij online' | trans }}</h2>
+                <p>{{ 'Ik heb trainings videos online op youtube!' | trans }}</p>
+                <p class="social">
+                  <a class="youtube img" title="{{ 'Youtube kanaal van Springvloed Fysiotherapie' | trans }}" href="http://www.youtube.com/playlist?list=PL8C2F13B936F59070" rel="external">youtube</a>
+                  <a class="twitter img" title="{{ 'Twitter pagina van Springvloed Fysiotherapie' | trans }}" href="https://twitter.com/Springfysio" rel="external">twitter</a>
+                  <a class="facebook img" title="{{ 'Facebook pagina van Martin Springvloed' | trans }}" href="http://www.facebook.com/martin.springvloed" rel="external">facebook</a>
+                  <a class="linkedin img" title="{{ 'Linkedin profiel van Martin Springvloed' | trans }}" href="http://www.linkedin.com/profile/view?id=2976564" rel="external">linkedin</a>
+                </p>
+                <p>
+                  {{ 'Heb je vragen, opmerkingen of commentaar? dat kan ook via het google+ netwerk!' | trans }}
+                  <div class="g-plus" data-href="https://plus.google.com/112589964501610816558" style="height:131px;width:170px"></div>
+                </p>
+
+                {% if app.locale == 'nl' %}
+                <div class="hidden-phone colleagues">
+                  <h2>{{ 'Vakgenoten' | trans }}</h2>
+                  <ul class="unstyled">
+                    <li><a rel="external" href="http://www.poweracademy.nl" title="">PowerAcademy</a><span> - Be the best you can be.</span></li>
+                    <li><a rel="external" href="http://www.cgw-rotterdam.nl" title="">CGW Rotterdam</a><span> - Centrum voor gezondheid en welzijn</span></li>
+                    <li><a rel="external" href="http://www.natuurlijkannerieke.nl" title="">Natuurlijk Annerieke</a><span> -  Acupunctuur, homeopathie &amp; natuurgeneeskunde</span></li>
+                  </ul>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>

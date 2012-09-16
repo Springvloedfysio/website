@@ -1,0 +1,84 @@
+
+
+/* Footer
+-------------------------------------------------- */
+footer {
+  margin-top: 45px;
+}
+.footer {
+  color: @grayLighter;
+
+  h2 {
+    color: lighten(@blue, 30%);
+  }
+
+  .grad1 {
+    border-top: 1px solid @grayLight;
+    height: 35px;
+    #gradient > .vertical(darken(@blue, 10%), @blue);
+  }
+
+  .grad2 {
+    #gradient > .vertical-three-colors(@blue, lighten(@blue, 5%), 65%, lighten(@blue, 30%));
+    padding-bottom: 36px;
+  }
+
+  .container {
+    padding-bottom: 36px;
+  }
+
+  .dl-horizontal {
+    dt {
+      float: left !important;
+      text-align: right !important;
+      width: 70px;
+    }
+    dd {
+      margin-left: 80px;
+    }
+  }
+
+  p {
+    margin-bottom: 1en;
+  }
+
+  a, a:hover {
+    color: @white;
+  }
+
+  .colleagues {
+    li {
+      span {
+        display: block;
+        margin-left: @gridGutterWidth;
+        font-style: italic;
+      }
+    }
+  }
+
+  .social {
+    .clearfix;
+
+    color: #aaa;
+
+    a {
+      display: block;
+      float: left;
+      opacity: 0.8;
+      text-decoration: none;
+      text-indent:  -9999px;
+      height: 32px;
+      width: 32px;
+      background: url(/assets/img/social.png) no-repeat top left;
+
+      &.facebook{ background-position: 0 0; }
+      &.linkedin{ background-position: 0 -33px; }
+      &.twitter { background-position: 0 -66px; }
+      &.youtube { background-position: 0 -99px; }
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+  }
+}
