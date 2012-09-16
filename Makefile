@@ -6,8 +6,6 @@ STYLE 						= ${ASSETS_ROOT}/css/all.css
 STYLE_MIN 					= ${ASSETS_ROOT}/css/all.min.css
 STYLE_LESS 					= ${SRC_ROOT}/less/all.less
 
-JS_BOOT 					= ${ASSETS_ROOT}/js/boot.js
-JS_BOOT_MIN					= ${ASSETS_ROOT}/js/boot.min.js
 JS_PLUGINS 					= ${ASSETS_ROOT}/js/plugins.js
 JS_PLUGINS_MIN				= ${ASSETS_ROOT}/js/plugins.min.js
 JS_BS_SRC					= ${SRC_ROOT}/js/libs/bootstrap
@@ -104,15 +102,14 @@ build_plugins_js:
 	@uglifyjs -nc ${JS_PLUGINS} > ${JS_PLUGINS_MIN}
 	@echo "Compiling and minifying JS 'plugins'...       ${CHECK} Done"
 
-build_boot_js:
+build_page_js:
 	@mkdir -p ${ASSETS_ROOT}/js
 	@echo "Ensuring JS asset output dirs exist...        ${CHECK} Done"
-	@cat ${SRC_ROOT}/js/boot.js > ${JS_BOOT}
-	@uglifyjs -nc ${JS_BOOT} > ${JS_BOOT_MIN}
-	@echo "Compiling and minifying JS 'bootfile'...      ${CHECK} Done"
+	@for FILE in ${SRC_ROOT}/js/*.js; do cp $$FILE ${ASSETS_ROOT}/js/; uglifyjs -nc $$FILE > ${ASSETS_ROOT}/js/`basename "$$FILE" .js`.min.js; done
+	@echo "Compiling and minifying JS files...           ${CHECK} Done"
 
 
-build_js: build_libs_js build_plugins_js build_boot_js
+build_js: build_libs_js build_plugins_js build_page_js
 
 #
 # manage local webserver
@@ -141,4 +138,4 @@ watch:
 	@echo "Watching Less & JS files (building for ${BUILD_ENV}) ..."; \
 	BUILD_ENV=${BUILD_ENV} watchr build/build.watchr
 
-.PHONY: watch jslint test build_start build_end build_css build_js build_libs_js build_plugins_js build_boot_js start_svr stop_svr
+.PHONY: watch jslint test build_start build_end build_css build_js build_libs_js build_plugins_js build_page_js start_svr stop_svr
