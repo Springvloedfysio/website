@@ -1,4 +1,6 @@
 .DS_Store
 demo-images
 build/*.pid
-public/app/config/*
+public/app/config/config.json
+public/app/config/production.json
+public/app/config/mollom-servers.json
